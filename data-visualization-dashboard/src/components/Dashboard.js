@@ -20,13 +20,20 @@ const Dashboard = () => {
 
     return (
         <Center>
-            <Box p={4}>
-                <IdDropdown onSelect={handleIdSelect} />
-                <DateRangePicker
-                    defaultStartDate={dateRange.startDate}
-                    defaultEndDate={dateRange.endDate}
-                    onSelect={(startDate, endDate) => setDateRange({ startDate, endDate })}
-                />
+            <Box p={4} maxWidth="800px">
+                <Box mb={4} textAlign="center">
+                    <h1 style={{ fontSize: '24px', fontWeight: 'bold' }}>Search Volume Dashboard</h1>
+                </Box>
+                <Box mb={4}>
+                    <IdDropdown onSelect={handleIdSelect} />
+                </Box>
+                <Box mb={4}>
+                    <DateRangePicker
+                        defaultStartDate={dateRange.startDate}
+                        defaultEndDate={dateRange.endDate}
+                        onSelect={(startDate, endDate) => setDateRange({ startDate, endDate })}
+                    />
+                </Box>
                 <SimpleGrid columns={1} spacing={6}>
                     {/* Here we check if selectedId is truthy before rendering the Chart */}
                     {selectedId && <Chart data={searchVolumeData} />}
