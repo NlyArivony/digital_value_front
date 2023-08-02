@@ -1,0 +1,9 @@
+# make sure to run the server.js in folder /api:
+    -> cd api
+    -> npm install
+    -> node server.js
+
+# go to the folder data-visualization-dashboard:
+    -> cd data-visualization-dashboard
+    -> npm install
+    -> npm start
