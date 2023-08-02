@@ -1,0 +1,5 @@
+# install package
+-> npm install
+
+# run the api:
+-> node server.js
