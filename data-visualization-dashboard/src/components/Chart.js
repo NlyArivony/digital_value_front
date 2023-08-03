@@ -8,8 +8,8 @@ const Chart = ({ data }) => {
     };
 
     return (
-        <Box borderWidth="1px" borderRadius="lg" p={4}>
-            <LineChart width={600} height={300} data={data} style={chartStyle}>
+        <Box borderWidth="1px" borderRadius="lg" p={4} m="auto" >
+            <LineChart width={700} height={300} data={data} style={chartStyle}>
                 <XAxis dataKey="date" />
                 <YAxis />
                 <CartesianGrid strokeDasharray="3 3" />

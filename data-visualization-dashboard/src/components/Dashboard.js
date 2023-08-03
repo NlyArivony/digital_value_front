@@ -1,9 +1,10 @@
 import React from 'react';
-import { Box, SimpleGrid, Center } from '@chakra-ui/react';
+import { Box, SimpleGrid, Center, Heading } from '@chakra-ui/react';
 import Chart from './Chart';
 import IdDropdown from './IdDropdown';
 import DateRangePicker from './DateRangePicker';
 import { useDashboardContext } from '../hooks/useDashboardContext';
+import Explorer from './categoryTreeExplorer/Explorer';
 
 const Dashboard = () => {
     const {
@@ -21,9 +22,12 @@ const Dashboard = () => {
     return (
         <Center>
             <Box p={4} maxWidth="800px">
-                <Box mb={4} textAlign="center">
-                    <h1 style={{ fontSize: '24px', fontWeight: 'bold' }}>Search Volume Dashboard</h1>
+                <Box mb={4}>
+                    <Explorer />
                 </Box>
+                <Heading as="h1" size="lg" textAlign="left" mb="4">
+                    Search Volume Dashboard
+                </Heading>
                 <Box mb={4}>
                     <IdDropdown onSelect={handleIdSelect} />
                 </Box>

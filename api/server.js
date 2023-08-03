@@ -32,6 +32,13 @@ app.get('/api/categories/id', (req, res) => {
     });
 });
 
+// Endpoint to serve the data
+app.get('/api/categories', (req, res) => {
+    const rawData = fs.readFileSync('categories.json');
+    const data = JSON.parse(rawData);
+    res.json(data);
+});
+
 app.listen(port, () => {
     console.log(`Server running on http://localhost:${port}`);
 });
