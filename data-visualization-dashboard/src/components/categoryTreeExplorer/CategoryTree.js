@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Box, List, ListItem, Text } from '@chakra-ui/react';
+import { Box, List, ListItem } from '@chakra-ui/react';
 
 const CategoryTree = ({ categories, onCategorySelect }) => {
     const [selectedCategoryId, setSelectedCategoryId] = useState(null);
@@ -21,9 +21,9 @@ const CategoryTree = ({ categories, onCategorySelect }) => {
                         }}
                         onClick={() => handleCategorySelect(category)}
                     >
-                        <Text>
+                        <pre>
                             {category.name}
-                        </Text>
+                        </pre>
                         {category.children && renderCategories(category.children)}
                     </ListItem>
                 ))}

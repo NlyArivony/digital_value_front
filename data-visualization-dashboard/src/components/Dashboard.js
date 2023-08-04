@@ -1,10 +1,10 @@
-import React from 'react';
-import { Box, SimpleGrid, Center, Heading } from '@chakra-ui/react';
+import React, { useEffect } from 'react';
+import { Box, SimpleGrid, Center } from '@chakra-ui/react';
 import Chart from './Chart';
-import IdDropdown from './IdDropdown';
 import DateRangePicker from './DateRangePicker';
 import { useDashboardContext } from '../hooks/useDashboardContext';
 import Explorer from './categoryTreeExplorer/Explorer';
+import { useExplorerContext } from '../hooks/useExplorerContext';
 
 const Dashboard = () => {
     const {
@@ -15,21 +15,20 @@ const Dashboard = () => {
         setSelectedId,
     } = useDashboardContext();
 
-    const handleIdSelect = (id) => {
-        setSelectedId(id);
-    };
+    const { selectedCategory } = useExplorerContext();
+    console.log(selectedCategory)
+
+    useEffect(() => {
+        if (selectedCategory) {
+            setSelectedId(selectedCategory.id);
+        }
+    }, [selectedCategory, setSelectedId]);
 
     return (
         <Center>
             <Box p={4} maxWidth="800px">
                 <Box mb={4}>
                     <Explorer />
-                </Box>
-                <Heading as="h1" size="lg" textAlign="left" mb="4">
-                    Search Volume Dashboard
-                </Heading>
-                <Box mb={4}>
-                    <IdDropdown onSelect={handleIdSelect} />
                 </Box>
                 <Box mb={4}>
                     <DateRangePicker
